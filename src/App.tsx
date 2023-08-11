@@ -1,13 +1,15 @@
 import React from 'react';
+import { Routes, Route } from "react-router-dom";
+import SearchView from './views/SearchView';
 import './App.css';
-import PokemonCard from './components/PokemonCard';
-import SearchInput from './components/SearchInput';
+
 
 function App() {
   return (
     <div>
-      <SearchInput />
-      <PokemonCard />
+      <Routes>
+        <Route path='*' element={<SearchView />} />
+      </Routes>
     </div>
   );
 }
