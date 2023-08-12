@@ -5,25 +5,26 @@ import PokemonCard from '../components/PokemonCard';
 import SearchInput from '../components/SearchInput';
 
 const SearchView = () => {
-    const [pokemon, setPokemon] = useState({})
+    const [pokemon, setPokemon] = useState<PokemonInfo | null>(null)
 
     const handleSearchPokemon = (searchPokemon: string) => {
-        getPokemonFromApi(searchPokemon)
+        getPokemonFromApi(searchPokemon.toLowerCase())
 
     }
     const getPokemonFromApi = async (searchPokemon: string) => {
         try {
-            const dataFromApi = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchPokemon}/`);
-            const pokemonFromApi: PokemonInfo = dataFromApi.data;
-            setPokemon(pokemonFromApi)
+            const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchPokemon}/`);
+                const pokemonFromApi: PokemonInfo = response.data;
+                setPokemon(pokemonFromApi)    
         } catch (error) {
             console.error(error)
         }
     }
+
     return (
         <div>
             <SearchInput onHandleSearchPokemon={handleSearchPokemon} />
-            <PokemonCard pokemon={pokemon} />
+            <PokemonCard pokemonProp={pokemon} />
         </div>
     );
 };
