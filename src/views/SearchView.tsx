@@ -6,7 +6,7 @@ const SearchView = () => {
     const [pokemon, setPokemon] = useState(null)
 
     const handleSearchPokemon = (searchPokemon: string) => {
-        console.log("hola handleNewPokemon")
+        
     }
     return (
         <div>
