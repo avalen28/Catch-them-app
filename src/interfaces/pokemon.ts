@@ -335,3 +335,7 @@ export interface Type2 {
   name: string;
   url: string;
 }
+
+export interface PokemonCardProps{
+        pokemonProp: PokemonInfo | null
+    }
