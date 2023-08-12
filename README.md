@@ -1,4 +1,9 @@
 # Pokémon-app
 
 ## Notes
-- I chose to use this approach because I don't have a specific path available. If I had an endpoint, the path would be set to that endpoint. In cases where there is uncertainty, setting path = "*" would serve as a safeguard against incorrect endpoints. This can be achieved using the Navigate method from react-router-dom.
+
+// VERSIÓ MÉS RECENT AMB CANVIS
+
+- I chose to use this approach because for the moment there will just be one view available for the user to navigate to, therefore only one url to use. Whenever the app will display more than one view, I will set specific paths for each view (like "/profile", "/about", etc), and in that scenario, the path = "*" would serve as a safeguard against incorrect urls, and it would display a 404 view to the user.
+
+URL DEL FRONTEND != ENDPOINT (API, BACKEND)
