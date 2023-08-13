@@ -16,23 +16,23 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                     <img src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonProp.id}.svg`} alt="Pokemon default img" />
                 </div>
                 <div className='flex justify-between pt-8 w-1/2'>
-                    <div className=' text-gray-500 w-1/2'>
-                        <p className='flex w-full justify-between'><span className="w-1/4 text-right">ID</span> <span>{"#" + pokemonProp.id}</span></p>
-                        <p className='flex w-full justify-between'><span className="w-1/4 text-right" >Height</span> <span>{pokemonProp.height}</span> </p>
-                        <p className='flex w-full justify-between'><span className="w-1/4 text-right" >Weight</span> <span>{pokemonProp.weight}</span></p>
+                    <div className='text-gray-500 w-1/2 flex flex-col gap-4'>
+                        <p className='flex w-full justify-between'><span className="w-1/4 text-right">ID</span> <span className='w-2/3 text-left'>{"#" + pokemonProp.id}</span></p>
+                        <p className='flex w-full justify-between'><span className="w-1/4 text-right" >Height</span> <span className='w-2/3 text-left'>{pokemonProp.height}</span> </p>
+                        <p className='flex w-full justify-between'><span className="w-1/4 text-right" >Weight</span> <span className='w-2/3 text-left'>{pokemonProp.weight}</span></p>
                         <div className='flex w-full justify-between'>
                             <p className="w-1/4 text-right" >Abilities</p>
-                            <div className='flex'>
-                                <p>{pokemonProp.abilities[0]?.ability?.name}</p>
-                                <p>{pokemonProp.abilities[1]?.ability?.name}</p>
+                            <div className='flex w-2/3 gap-2'>
+                                <p className='bg-gray-200 px-1 border-1 border-solid border-gray-200 rounded-sm'>{pokemonProp.abilities[0]?.ability?.name.toUpperCase()}</p>
+                                <p className='bg-gray-200 px-1 border-1 border-solid border-gray-200 rounded-sm'>{pokemonProp.abilities[1]?.ability?.name.toUpperCase()}</p>
                             </div>
                         </div>
                         <div className='flex w-full justify-between'>
                             <p className="w-1/4 text-right" >Type</p>
-                            <div className='flex'>
+                            <div className='flex w-2/3 gap-2 flex-wrap'>
                                 {pokemonProp.types.map(elem => {
                                     return (
-                                        <p>{elem.type.name}</p>
+                                        <p className='bg-gray-200 px-1 border-1 border-solid border-gray-200 rounded-sm'>{elem.type.name}</p>
                                     )
                                 })}
                             </div>
