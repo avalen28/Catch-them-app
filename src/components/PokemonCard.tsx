@@ -7,15 +7,15 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
 
 
     return (
-        <div className='pb-8'>
+        <div className='pb-8 w-full'>
             {pokemonProp?.name && (<div>
-                <div className='flex justify-start gap-24 items-center'>
+                <div className='flex justify-between gap-24 items-center w-1/2'>
                     <h2 className='text-5xl text-gray-500'>{pokemonProp.name.toUpperCase()}</h2>
                     {/* <img className="w-96" src={pokemonProp.sprites.front_default} alt="Pokemon default img" /> */}
                     {/* This second src have better img and use the same id from the api-data */}
                     <img src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonProp.id}.svg`} alt="Pokemon default img" />
                 </div>
-                <div className='flex pt-8'>
+                <div className='flex justify-between pt-8 w-1/2'>
                     <div className=' text-gray-500'>
                         <p><span>ID</span> <span>{"#" + pokemonProp.id}</span></p>
                         <p><span>Height</span> <span>{pokemonProp.height}</span> </p>
