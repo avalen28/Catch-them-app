@@ -3,8 +3,7 @@ import { PokemonCardProps } from '../interfaces/pokemon';
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
     console.log(pokemonProp)
-
-
+    const higestStat: number | undefined = pokemonProp?.stats.map(elem => elem.base_stat).sort((a, b) => b - a)[0]
 
     return (
         <div className='pb-8 w-full'>
@@ -38,15 +37,22 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                         </div>
                     </div>
                     <div className='text-gray-500 w-1/2 flex flex-col gap-4'>
-                        {pokemonProp.stats.map(elem => {
+                        {pokemonProp.stats.map((elem) => {
                             return (
                                 <div className='flex justify-between'>
-                                    <p className='w-1/4 text-right'>{elem.stat.name}</p>
-                                    <progress
+                                    <p className='w-1/3 text-left'>{elem.stat.name}</p>
+                                    {/* <progress
                                         className="w-2/3 border-2 border-solid border-gray-200 rounded-md h-5"
-                                        max="100"
+                                        max={higestStat}
                                         value={elem.base_stat}
-                                    ></progress>
+                                    ></progress> */}
+
+
+                                    <div className={'bg-gray-400 w-2/3'}>
+
+                                        <div className={'bg-green-400 text-right'} style={{ width: `${elem.base_stat / higestStat! * 100}%` }}>{elem.base_stat}</div>
+                                    </div>
+
                                 </div>
                             )
                         })}
