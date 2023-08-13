@@ -9,13 +9,13 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
     return (
         <div className='pb-8 w-full'>
             {pokemonProp?.name && (<div>
-                <div className='flex justify-between gap-24 items-center w-1/2'>
+                <div className='flex justify-center gap-80 items-center w-2/3'>
                     <h2 className='text-5xl text-gray-500'>{pokemonProp.name.toUpperCase()}</h2>
                     {/* <img className="w-96" src={pokemonProp.sprites.front_default} alt="Pokemon default img" /> */}
                     {/* This second src have better img and use the same id from the api-data */}
                     <img src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonProp.id}.svg`} alt="Pokemon default img" />
                 </div>
-                <div className='flex justify-between pt-8 w-1/2'>
+                <div className='flex justify-between pt-8 w-2/3'>
                     <div className='text-gray-500 w-1/2 flex flex-col gap-4'>
                         <p className='flex w-full justify-between'><span className="w-1/4 text-right">ID</span> <span className='w-2/3 text-left'>{"#" + pokemonProp.id}</span></p>
                         <p className='flex w-full justify-between'><span className="w-1/4 text-right" >Height</span> <span className='w-2/3 text-left'>{pokemonProp.height}</span> </p>
@@ -39,13 +39,13 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
 
                         </div>
                     </div>
-                    <div className='text-gray-500'>
+                    <div className='text-gray-500 w-1/2 flex flex-col gap-4'>
                         {pokemonProp.stats.map(elem => {
                             return (
-                                <div>
-                                    <p>{elem.stat.name}</p>
+                                <div className='flex justify-between'>
+                                    <p className='w-1/4 text-right'>{elem.stat.name}</p>
                                     <progress
-                                        //className="w-full border-2 border-solid border-sky-200 rounded-md h-3"
+                                        className="w-2/3 border-2 border-solid rounded-md h-5"
                                         max="100"
                                         value={elem.base_stat}
                                     ></progress>
