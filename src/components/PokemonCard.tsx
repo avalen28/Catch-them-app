@@ -4,7 +4,10 @@ import { pokemonType } from '../data/pokemonTypes';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
-    const higestStat: number | undefined = pokemonProp?.stats.map(elem => elem.base_stat).sort((a, b) => b - a)[0];
+    const higestStat: number = pokemonProp?.stats.map(elem => elem.base_stat).sort((a, b) => b - a)[0] || 0;
+    const principalType: string = pokemonProp?.types[0].type.name || ""
+    const principalTypeColor = pokemonType.find(elem => elem.type === principalType)?.color || ""
+    const secondaryPrincipalTypeColor = pokemonType.find(elem=> elem.type === principalType)?.secondaryColor || ""
 
     return (
         <div className='pb-8 w-full'>
@@ -24,8 +27,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                         <div className='flex w-full justify-between'>
                             <p className="w-1/4 text-right" >Abilities</p>
                             <div className='flex w-2/3 gap-2'>
-                                <p className='bg-gray-200 px-1 border-1 border-solid border-gray-200 rounded-sm'>{pokemonProp.abilities[0]?.ability?.name.toUpperCase()}</p>
-                                <p className='bg-gray-200 px-1 border-1 border-solid border-gray-200 rounded-sm'>{pokemonProp.abilities[1]?.ability?.name.toUpperCase()}</p>
+                                <p className={`${principalTypeColor} px-1 border-1 border-solid border-gray-200 rounded-sm`}>{pokemonProp.abilities[0]?.ability?.name.toUpperCase()}</p>
+                                <p className={`${secondaryPrincipalTypeColor} px-1 border-1 border-solid border-gray-200 rounded-sm`}>{pokemonProp.abilities[1]?.ability?.name.toUpperCase()}</p>
                             </div>
                         </div>
 
@@ -35,12 +38,12 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                             <p className="w-1/4 text-right" >Type</p>
                             <div className='flex w-2/3 gap-2 flex-wrap'>
                                 <div className='type and symbol'>
-                                    {pokemonProp.types.map(elem => {
+                                    {pokemonProp.types.map((elem,i) => {
                                         const typeColor = pokemonType.find(type => type.type === elem.type.name)!.color;
                                         const typeIcon = pokemonType.find(type => type.type === elem.type.name)!.img;
                                         return (
-                                            <div>
-                                                <p className={typeColor + " px-1 border-1 border-solid border-gray-200 rounded-sm"}>{elem.type.name} <FontAwesomeIcon icon={typeIcon} /></p>
+                                            <div key={i}>
+                                                <p className={`${typeColor} px-1 border-1 border-solid border-${typeColor} rounded-sm`}>{elem.type.name} <FontAwesomeIcon icon={typeIcon} /></p>
                                             </div>
                                         )
                                     })}
@@ -57,7 +60,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                                 <div className='flex justify-between'>
                                     <p className='w-1/3 text-left'>{elem.stat.name}</p>
                                     <div className={'bg-gray-400 w-2/3'}>
-                                        <div className={'bg-green-400 text-right'} style={{ width: `${elem.base_stat / higestStat! * 100}%` }}>{elem.base_stat}</div>
+                                        <div className={`${secondaryPrincipalTypeColor} text-right pr-1 text-slate-600`} style={{ width: `${elem.base_stat / higestStat! * 100}%` }}>{elem.base_stat}</div>
                                     </div>
 
                                 </div>
