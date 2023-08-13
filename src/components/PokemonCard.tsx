@@ -11,9 +11,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
             {pokemonProp?.name && (<div>
                 <div className='flex justify-center gap-80 items-center w-2/3'>
                     <h2 className='text-5xl text-gray-500'>{pokemonProp.name.toUpperCase()}</h2>
-                    {/* <img className="w-96" src={pokemonProp.sprites.front_default} alt="Pokemon default img" /> */}
+                    <img className="w-96" src={pokemonProp.sprites.front_default} alt="Pokemon default img" />
                     {/* This second src have better img and use the same id from the api-data */}
-                    <img src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonProp.id}.svg`} alt="Pokemon default img" />
+                    {/* <img src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonProp.id}.svg`} alt="Pokemon default img" /> */}
                 </div>
                 <div className='flex justify-between pt-8 w-2/3'>
                     <div className='text-gray-500 w-1/2 flex flex-col gap-4'>
