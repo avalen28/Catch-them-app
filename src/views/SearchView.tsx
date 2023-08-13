@@ -22,7 +22,7 @@ const SearchView = () => {
     }
 
     return (
-        <div>
+        <div className='p-16'>
             <SearchInput onHandleSearchPokemon={handleSearchPokemon} />
             <PokemonCard pokemonProp={pokemon} />
         </div>
