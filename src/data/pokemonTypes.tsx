@@ -1,94 +1,99 @@
 import { pokemonTypeInterface } from "../interfaces/pokemonTypeInterface"
-
+import {
+    faBug,
+    faMoon,
+    faLeaf,
+    faSkullCrossbones
+} from "@fortawesome/free-solid-svg-icons";
 export const pokemonType: pokemonTypeInterface[] = [
     {
         type: "bug",
-        color: " bg-green-700",
-        img: ""
+        color: "bg-green-700",
+        img: faBug
     },
     {
         type: "dark",
         color: "bg-zinc-900",
-        img: ""
+        img: "faMoon"
     },
     {
         type: "dragon",
         color: "bg-teal-600",
-        img: ""
+        img: "faDragon"
     },
     {
         type: "electric",
         color: "bg-yellow-300",
-        img: ""
+        img: "faBolt"
     },
     {
         type: "fairy",
         color: "bg-pink-700",
-        img: ""
+        img: "faHandSparkles"
     },
     {
         type: "fighting",
         color: "bg-orange-700",
-        img: ""
+        img: "faHandFist"
     },
     {
         type: "fire",
         color: "bg-red-600",
-        img: ""
+        img: "faFire"
     },
     {
         type: "flying",
         color: "bg-slate-600",
-        img: ""
+        img: "faDove"
     },
     {
         type: "ghost",
         color: "bg-indigo-800",
-        img: ""
+        img: "faGhost"
     },
     {
         type: "grass",
         color: "bg-green-600",
-        img: ""
+        img: faLeaf
     },
     {
         type: "ground",
         color: "bg-amber-700",
-        img: ""
+        img: "faMountainSun"
     },
     {
         type: "ice",
         color: "bg-cyan-500",
-        img: ""
+        img: "faSnowFlake"
     },
     {
         type: "normal",
         color: "bg-rose-300",
-        img: ""
+        img: "faCircleXmark"
     },
     {
         type: "poison",
         color: "bg-purple-700",
-        img: ""
+        img: faSkullCrossbones
     },
     {
         type: "psychic",
         color: "bg-fuchsia-500",
-        img: ""
+        img: "faHatWizard"
     },
     {
         type: "rock",
         color: "bg-orange-950",
-        img: ""
+        img: "faDumbbell"
     },
     {
         type: "steel",
         color: "bg-teal-800",
-        img: ""
+        img: "faAtom"
     },
     {
         type: "water",
         color: "bg-blue-700",
-        img: ""
+        img: "faDroplet"
     }
 ]

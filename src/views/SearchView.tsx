@@ -6,7 +6,6 @@ import SearchInput from '../components/SearchInput';
 
 const SearchView = () => {
     const [pokemon, setPokemon] = useState<PokemonInfo | null>(null)
-
     const handleSearchPokemon = (searchPokemon: string) => {
         getPokemonFromApi(searchPokemon.toLowerCase())
 
