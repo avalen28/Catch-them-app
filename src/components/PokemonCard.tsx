@@ -45,7 +45,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                                 <div className='flex justify-between'>
                                     <p className='w-1/4 text-right'>{elem.stat.name}</p>
                                     <progress
-                                        className="w-2/3 border-2 border-solid rounded-md h-5"
+                                        className="w-2/3 border-2 border-solid border-gray-200 rounded-md h-5"
                                         max="100"
                                         value={elem.base_stat}
                                     ></progress>
