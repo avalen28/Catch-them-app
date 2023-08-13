@@ -16,25 +16,25 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                     <img src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonProp.id}.svg`} alt="Pokemon default img" />
                 </div>
                 <div className='flex justify-between pt-8 w-1/2'>
-                    <div className=' text-gray-500'>
-                        <p><span>ID</span> <span>{"#" + pokemonProp.id}</span></p>
-                        <p><span>Height</span> <span>{pokemonProp.height}</span> </p>
-                        <p><span>Weight</span> <span>{pokemonProp.weight}</span></p>
-                        <div>
-                            <p>Abilities</p>
-                            <div>
+                    <div className=' text-gray-500 w-1/2'>
+                        <p className='flex w-full justify-between'><span className="w-1/4 text-right">ID</span> <span>{"#" + pokemonProp.id}</span></p>
+                        <p className='flex w-full justify-between'><span className="w-1/4 text-right" >Height</span> <span>{pokemonProp.height}</span> </p>
+                        <p className='flex w-full justify-between'><span className="w-1/4 text-right" >Weight</span> <span>{pokemonProp.weight}</span></p>
+                        <div className='flex w-full justify-between'>
+                            <p className="w-1/4 text-right" >Abilities</p>
+                            <div className='flex'>
                                 <p>{pokemonProp.abilities[0]?.ability?.name}</p>
                                 <p>{pokemonProp.abilities[1]?.ability?.name}</p>
                             </div>
                         </div>
-                        <div>
-                            <p>Type</p>
-                            <div>
-                            {pokemonProp.types.map(elem => {
-                                return (
-                                    <p>{elem.type.name}</p>
-                                )
-                            })}
+                        <div className='flex w-full justify-between'>
+                            <p className="w-1/4 text-right" >Type</p>
+                            <div className='flex'>
+                                {pokemonProp.types.map(elem => {
+                                    return (
+                                        <p>{elem.type.name}</p>
+                                    )
+                                })}
                             </div>
 
                         </div>
