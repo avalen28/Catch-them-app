@@ -27,8 +27,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                         <div className='flex w-full justify-between'>
                             <p className="w-1/4 text-right" >Abilities</p>
                             <div className='flex w-2/3 gap-2'>
-                                <p className={`${principalTypeColor} px-1 border-1 border-solid border-gray-200 rounded-sm`}>{pokemonProp.abilities[0]?.ability?.name.toUpperCase()}</p>
-                                <p className={`${secondaryPrincipalTypeColor} px-1 border-1 border-solid border-gray-200 rounded-sm`}>{pokemonProp.abilities[1]?.ability?.name.toUpperCase()}</p>
+                                <p className={`${principalTypeColor} px-1 border-1 border-solid border-${principalTypeColor} rounded-md text-center pl-4 pr-4 pt-1 pb-1 text-slate-300`}>{pokemonProp.abilities[0]?.ability?.name.toUpperCase()}</p>
+                                <p className={`${secondaryPrincipalTypeColor} px-1 border-1 border-solid border-${secondaryPrincipalTypeColor} rounded-md text-center pl-4 pr-4 pt-1 pb-1 text-slate-400`}>{pokemonProp.abilities[1]?.ability?.name.toUpperCase()}</p>
                             </div>
                         </div>
 
@@ -37,13 +37,13 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                         <div className='flex w-full justify-between'>
                             <p className="w-1/4 text-right" >Type</p>
                             <div className='flex w-2/3 gap-2 flex-wrap'>
-                                <div className='type and symbol'>
+                                <div className='flex w-full justify-start gap-5'>
                                     {pokemonProp.types.map((elem,i) => {
                                         const typeColor = pokemonType.find(type => type.type === elem.type.name)!.color;
                                         const typeIcon = pokemonType.find(type => type.type === elem.type.name)!.img;
                                         return (
                                             <div key={i}>
-                                                <p className={`${typeColor} px-1 border-1 border-solid border-${typeColor} rounded-sm`}>{elem.type.name} <FontAwesomeIcon icon={typeIcon} /></p>
+                                                <p className={`${typeColor} px-1 border-1 border-solid border-${typeColor} rounded-md text-center pl-4 pr-4 pt-1 pb-1 text-slate-300`}>{elem.type.name} <FontAwesomeIcon icon={typeIcon} /></p>
                                             </div>
                                         )
                                     })}
@@ -59,8 +59,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                             return (
                                 <div className='flex justify-between'>
                                     <p className='w-1/3 text-left'>{elem.stat.name}</p>
-                                    <div className={'bg-gray-400 w-2/3'}>
-                                        <div className={`${secondaryPrincipalTypeColor} text-right pr-1 text-slate-600`} style={{ width: `${elem.base_stat / higestStat! * 100}%` }}>{elem.base_stat}</div>
+                                    <div className={`bg-gray-200 w-2/3 border-1 border-solid rounded-md`}>
+                                        <div className={`${secondaryPrincipalTypeColor} text-right pr-2 text-slate-400 px-1 border-1 border-solid border-${secondaryPrincipalTypeColor} rounded-md`} style={{ width: `${elem.base_stat / higestStat! * 100}%` }}>{elem.base_stat}</div>
                                     </div>
 
                                 </div>
