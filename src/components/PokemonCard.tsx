@@ -17,9 +17,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                 </div>
                 <div className='flex pt-8'>
                     <div className=' text-gray-500'>
-                        <p>ID {"#" + pokemonProp.id}</p>
-                        <p>Height {pokemonProp.height} </p>
-                        <p>Weight {pokemonProp.weight}</p>
+                        <p><span>ID</span> <span>{"#" + pokemonProp.id}</span></p>
+                        <p><span>Height</span> <span>{pokemonProp.height}</span> </p>
+                        <p><span>Weight</span> <span>{pokemonProp.weight}</span></p>
                         <div>
                             <p>Abilities</p>
                             <div>
@@ -29,11 +29,13 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                         </div>
                         <div>
                             <p>Type</p>
+                            <div>
                             {pokemonProp.types.map(elem => {
                                 return (
                                     <p>{elem.type.name}</p>
                                 )
                             })}
+                            </div>
 
                         </div>
                     </div>
