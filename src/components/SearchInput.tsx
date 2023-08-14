@@ -18,10 +18,10 @@ const SearchInput = ({ onHandleSearchPokemon }: any) => {
     }
 
     return (
-        <div>
+        <div className='flex justify-center'>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="searchPokemon" value={pokemonQuery} onChange={handlePokemonQuery} required placeholder="Search..." className="bg-slate-200 px-4 py-2 border-2 border-solid border-slate-200 rounded-full" />
-                <button type='submit'><FontAwesomeIcon icon={faMagnifyingGlass} className="text-blue-500 relative right-8"/></button>
+                <button type='submit'><FontAwesomeIcon icon={faMagnifyingGlass} className="text-blue-500 relative right-8" /></button>
             </form>
         </div>
     );

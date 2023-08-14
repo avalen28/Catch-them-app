@@ -13,8 +13,8 @@ const SearchView = () => {
     const getPokemonFromApi = async (searchPokemon: string) => {
         try {
             const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchPokemon}/`);
-                const pokemonFromApi: PokemonInfo = response.data;
-                setPokemon(pokemonFromApi)    
+            const pokemonFromApi: PokemonInfo = response.data;
+            setPokemon(pokemonFromApi)
         } catch (error) {
             console.error(error)
         }
@@ -23,7 +23,7 @@ const SearchView = () => {
     return (
         <div className='p-16'>
             <SearchInput onHandleSearchPokemon={handleSearchPokemon} />
-            <PokemonCard pokemonProp={pokemon} />
+            {pokemon && <PokemonCard pokemonProp={pokemon} />}
         </div>
     );
 };
