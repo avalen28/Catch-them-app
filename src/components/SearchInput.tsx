@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faMagnifyingGlass
 } from "@fortawesome/free-solid-svg-icons";
-
+// pass on props the function that takes and call to the api
 const SearchInput = ({ onHandleSearchPokemon }: any) => {
     const [pokemonQuery, setPokemonQuery] = useState("")
 
@@ -14,6 +14,7 @@ const SearchInput = ({ onHandleSearchPokemon }: any) => {
     //form event
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault()
+        //this function do the api call
         onHandleSearchPokemon(pokemonQuery)
     }
 
