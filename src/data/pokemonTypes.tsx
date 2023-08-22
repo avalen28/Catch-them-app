@@ -1,4 +1,8 @@
-import { pokemonTypeInterface } from "../interfaces/pokemonTypeInterface"
+//Here we have every type of pokemon. we use the interface(created by myself) PokemonTypeInterface
+
+
+import { pokemonTypeInterface } from "../interfaces/pokemonTypeInterface";
+
 import {
     faBug,
     faMoon,

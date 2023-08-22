@@ -35,6 +35,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
                         <div className='flex w-full justify-between'>
                             <p className="w-1/4 text-right" >Abilities</p>
                             <div className='flex w-2/3 gap-2 text-white'>
+                                {/* always the api returns 2 abilities */}
                                 <p className={`${principalTypeColor} px-1 border-1 border-solid border-${principalTypeColor} rounded-md text-center pl-4 pr-4 pt-1 pb-1`}>{pokemonProp.abilities[0]?.ability?.name.toUpperCase()}</p>
                                 <p className={`${secondaryPrincipalTypeColor} px-1 border-1 border-solid border-${secondaryPrincipalTypeColor} rounded-md text-center pl-4 pr-4 pt-1 pb-1 text-slate-600`}>{pokemonProp.abilities[1]?.ability?.name.toUpperCase()}</p>
                             </div>
