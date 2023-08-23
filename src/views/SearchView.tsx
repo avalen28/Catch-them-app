@@ -25,7 +25,7 @@ const SearchView = () => {
         try {
             const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchPokemon}/`);
             if (response) {
-                setLoading(false)
+                setTimeout(() => setLoading(false), 1500)
             }
             const pokemonFromApi: PokemonInfo = response.data;
             // when the pokemon with his interface is correct. ups to the useState

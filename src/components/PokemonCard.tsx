@@ -23,8 +23,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
         <div className='pb-8 w-11/12'>
             {pokemonProp?.name && (<div>
                 <div className='flex justify-center gap-40 items-center w-full'>
-                    <h2 className='text-5xl text-gray-500'>{pokemonProp.name.toUpperCase()}</h2>
-                    <img className="w-96" src={pokemonProp.sprites.other['official-artwork'].front_default} alt="Pokemon default img" />
+                    <h2 className='text-5xl text-gray-500 text-center w-1/3'>{pokemonProp.name.toUpperCase()}</h2>
+                    <img className="w-2/5 h-96 object-contain" src={pokemonProp.sprites.other['official-artwork'].front_default} alt="Pokemon default img" />
                 </div>
                 <div className='flex justify-center pt-8 w-full'>
                     {/* first block */}
