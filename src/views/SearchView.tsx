@@ -7,6 +7,7 @@ import SearchInput from '../components/SearchInput';
 const SearchView = () => {
     // interface of the pokemon-useState
     const [pokemon, setPokemon] = useState<PokemonInfo | null>(null)
+    const [loading,setLoading] = useState(false)
 
     // function that takes the pokemon name
     // as a parameter(pass this function to the child SearchInput)
@@ -17,12 +18,17 @@ const SearchView = () => {
     //declarates the function that calls to the api.
     const getPokemonFromApi = async (searchPokemon: string) => {
         try {
+            setLoading(true)         
             const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchPokemon}/`);
+            if (response) {
+                setLoading(false)
+            }
             const pokemonFromApi: PokemonInfo = response.data;
             // when the pokemon with his interface is correct. ups to the useState
             setPokemon(pokemonFromApi)
         } catch (error) {
             console.error(error)
+            setLoading(false)
         }
     }
     // On searchInput we pass the function that trigger handleSearch
@@ -33,7 +39,8 @@ const SearchView = () => {
         <div className='p-16'>
             <SearchInput onHandleSearchPokemon={handleSearchPokemon} />
             {/* when we have any pokemon, print PokemonCard */}
-            {pokemon && <PokemonCard pokemonProp={pokemon} />}
+            {loading && <img src="../../public/images/loading.gif" alt="loading-gif" />}
+            {pokemon && !loading && <PokemonCard pokemonProp={pokemon} />}
         </div>
     );
 };
