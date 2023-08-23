@@ -7,7 +7,8 @@ import SearchInput from '../components/SearchInput';
 const SearchView = () => {
     // interface of the pokemon-useState
     const [pokemon, setPokemon] = useState<PokemonInfo | null>(null)
-    const [loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [errorView,setErrorView] = useState(false)
 
     // function that takes the pokemon name
     // as a parameter(pass this function to the child SearchInput)
@@ -17,8 +18,10 @@ const SearchView = () => {
     }
     //declarates the function that calls to the api.
     const getPokemonFromApi = async (searchPokemon: string) => {
+        setPokemon(null)
+        setLoading(true)  
+        setErrorView(false)
         try {
-            setLoading(true)         
             const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchPokemon}/`);
             if (response) {
                 setLoading(false)
@@ -29,6 +32,7 @@ const SearchView = () => {
         } catch (error) {
             console.error(error)
             setLoading(false)
+            setErrorView(true)
         }
     }
     // On searchInput we pass the function that trigger handleSearch
@@ -39,8 +43,9 @@ const SearchView = () => {
         <div className='p-16'>
             <SearchInput onHandleSearchPokemon={handleSearchPokemon} />
             {/* when we have any pokemon, print PokemonCard */}
-            {loading && <img src="../../public/images/loading.gif" alt="loading-gif" />}
+            {loading && <div className='flex justify-center pt-4'><img className="w-12" src="./images/loading.gif" alt="loading-gif" /></div>}
             {pokemon && !loading && <PokemonCard pokemonProp={pokemon} />}
+            {errorView && !loading && <h3>error!!!</h3>}
         </div>
     );
 };
