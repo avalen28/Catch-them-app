@@ -20,7 +20,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonProp }) => {
     const newWeigth = conversionWeight(pokemonProp!.weight)
 
     return (
-        <div className='pb-8 w-full'>
+        <div className='pb-8 w-11/12'>
             {pokemonProp?.name && (<div>
                 <div className='flex justify-center gap-40 items-center w-full'>
                     <h2 className='text-5xl text-gray-500'>{pokemonProp.name.toUpperCase()}</h2>

@@ -41,7 +41,7 @@ const SearchView = () => {
 
     // when we have the pokemon data, check if is true and then launch the PokemonCard component
     return (
-        <div className='p-16 h-screen'>
+        <div className='p-16 h-screen flex flex-col items-center'>
             <SearchInput onHandleSearchPokemon={handleSearchPokemon} />
             {/* when we have any pokemon, print PokemonCard */}
             {loading && <div className='flex justify-center pt-4'><img className="w-12" src="./images/loading.gif" alt="loading-gif" /></div>}
