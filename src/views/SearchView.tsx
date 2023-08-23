@@ -3,6 +3,7 @@ import axios from "axios";
 import { PokemonInfo } from '../interfaces/pokemon';
 import PokemonCard from '../components/PokemonCard';
 import SearchInput from '../components/SearchInput';
+import ErrorCard from '../components/ErrorCard';
 
 const SearchView = () => {
     // interface of the pokemon-useState
@@ -40,12 +41,12 @@ const SearchView = () => {
 
     // when we have the pokemon data, check if is true and then launch the PokemonCard component
     return (
-        <div className='p-16'>
+        <div className='p-16 h-screen'>
             <SearchInput onHandleSearchPokemon={handleSearchPokemon} />
             {/* when we have any pokemon, print PokemonCard */}
             {loading && <div className='flex justify-center pt-4'><img className="w-12" src="./images/loading.gif" alt="loading-gif" /></div>}
             {pokemon && !loading && <PokemonCard pokemonProp={pokemon} />}
-            {errorView && !loading && <h3>error!!!</h3>}
+            {errorView && !loading && <ErrorCard />}
         </div>
     );
 };
